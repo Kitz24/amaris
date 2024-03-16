@@ -8,52 +8,50 @@ const AboutPage = () => {
         <h1 className="text-center">About Us</h1>
         <hr />
         <p className="lead text-center">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
-          facere doloremque veritatis odit similique sequi. Odit amet fuga nam
-          quam quasi facilis sed doloremque saepe sint perspiciatis explicabo
-          totam vero quas provident ipsam, veritatis nostrum velit quos
-          recusandae est mollitia esse fugit dolore laudantium. Ex vel explicabo
-          earum unde eligendi autem praesentium, doloremque distinctio nesciunt
-          porro tempore quis eaque labore voluptatibus ea necessitatibus
-          exercitationem tempora molestias. Ad consequuntur veniam sequi ullam
-          tempore vel tenetur soluta dolore sunt maxime aliquam corporis est,
-          quo saepe dolorem optio minus sint nemo totam dolorum! Reprehenderit
-          delectus expedita a alias nam recusandae illo debitis repellat libero,
-          quasi explicabo molestiae saepe, dolorem tempore itaque eveniet quam
-          dignissimos blanditiis excepturi harum numquam vel nihil? Ipsum
+        Welcome to Amaris Kitchen Store!
+
+At Amaris Kitchen Store, we believe that a well-equipped kitchen is the heart of every home. Nestled in the vibrant state of Kerala, India, our store is your ultimate destination for all your kitchen needs. Whether you're a seasoned chef or a passionate home cook, we offer a diverse range of high-quality kitchen appliances and utensils to elevate your culinary experience.
+
+Explore our extensive collection featuring leading brands from around the world. From sleek and modern to classic and timeless designs, we curate products that cater to every style and preference. Whether you're in search of state-of-the-art kitchen gadgets, durable cookware, or efficient appliances, we have you covered.
+
+Our team of knowledgeable and friendly staff is committed to providing personalized assistance to help you find the perfect products for your culinary endeavors. We understand that every kitchen is unique, and we strive to offer tailored solutions to meet your specific requirements.
+
+At Amaris Kitchen Store, we prioritize customer satisfaction above all else. We stand behind the quality of our products and take pride in offering competitive prices to ensure that you receive the best value for your investment.
+
+Visit us today and embark on a journey to transform your kitchen into a culinary haven. Whether you're seeking inspiration, innovation, or simply the joy of cooking, Amaris Kitchen Store is here to make your culinary dreams a reality. Experience the difference with us  where quality meets excellence, and every meal becomes a masterpiece.
         </p>
 
         <h2 className="text-center py-4">Our Products</h2>
         <div className="row">
           <div className="col-md-3 col-sm-6 mb-3 px-3">
             <div className="card h-100">
-              <img className="card-img-top img-fluid" src="https://images.pexels.com/photos/298863/pexels-photo-298863.jpeg?auto=compress&cs=tinysrgb&w=600" alt="" height={160} />
+              <img className="card-img-top img-fluid" src="https://images.pexels.com/photos/2002429/pexels-photo-2002429.jpeg?auto=compress&cs=tinysrgb&w=400&h=750&dpr=1" alt="" height={160} />
               <div className="card-body">
-                <h5 className="card-title text-center">Mens's Clothing</h5>
+                <h5 className="card-title text-center">Cutlery</h5>
               </div>
             </div>
           </div>
           <div className="col-md-3 col-sm-6 mb-3 px-3">
             <div className="card h-100">
-              <img className="card-img-top img-fluid" src="https://images.pexels.com/photos/7679720/pexels-photo-7679720.jpeg?auto=compress&cs=tinysrgb&w=600" alt="" height={160} />
+              <img className="card-img-top img-fluid" src="https://images.pexels.com/photos/2868977/pexels-photo-2868977.jpeg?auto=compress&cs=tinysrgb&w=400&h=750&dpr=1" alt="" height={160} />
               <div className="card-body">
-                <h5 className="card-title text-center">Women's Clothing</h5>
+                <h5 className="card-title text-center">Utensils</h5>
               </div>
             </div>
           </div>
           <div className="col-md-3 col-sm-6 mb-3 px-3">
             <div className="card h-100">
-              <img className="card-img-top img-fluid" src="https://images.pexels.com/photos/1927259/pexels-photo-1927259.jpeg?auto=compress&cs=tinysrgb&w=600" alt="" height={160} />
+              <img className="card-img-top img-fluid" src="https://images.pexels.com/photos/1148450/pexels-photo-1148450.jpeg?auto=compress&cs=tinysrgb&w=600" alt="" height={160} />
               <div className="card-body">
-                <h5 className="card-title text-center">Jewelery</h5>
+                <h5 className="card-title text-center">Glasswares</h5>
               </div>
             </div>
           </div>
           <div className="col-md-3 col-sm-6 mb-3 px-3">
             <div className="card h-100">
-              <img className="card-img-top img-fluid" src="https://images.pexels.com/photos/356056/pexels-photo-356056.jpeg?auto=compress&cs=tinysrgb&w=600" alt="" height={160} />
+              <img className="card-img-top img-fluid" src="https://images.pexels.com/photos/211761/pexels-photo-211761.jpeg?auto=compress&cs=tinysrgb&w=600" alt="" height={160} />
               <div className="card-body">
-                <h5 className="card-title text-center">Electronics</h5>
+                <h5 className="card-title text-center">Appliances</h5>
               </div>
             </div>
           </div>
