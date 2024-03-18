@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { addCart } from "../redux/action";
-import products from "./products.json";
+import producc from "./boo.json"
 
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
@@ -23,11 +23,10 @@ const Products = () => {
   useEffect(() => {
     const getProducts = async () => {
       setLoading(true);
-      const response = await fetch("https://jsonkeeper.com/b/OAQI");
-      
+      //const response = await fetch("https://fakestoreapi.com/products/");
       if (componentMounted) {
-        setData(await response.clone().json());
-        setFilter(await response.json());
+        setData(producc);
+        setFilter(producc);
         setLoading(false);
       }
 
