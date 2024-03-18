@@ -1,4 +1,5 @@
 import React from "react";
+import "./Home.css";
 
 const Home = () => {
   return (
@@ -12,11 +13,10 @@ const Home = () => {
             height={500}
           />
           <div className="card-img-overlay d-flex align-items-center">
-            <div className="container">
-              <h5 className="card-title fs-1 text fw-lighter">SPECIAL OFFERS INCOMING</h5>
-              <p className="card-text fs-5 d-none d-sm-block ">
-              NEW OFFERS FOR SPECIAL OCCATIONS AND CELEBRATIONS.
-            
+            <div className="container text-container">
+              <h1 className="card-title fs-1 text fw-bold">SPECIAL OFFERS INCOMING</h1>
+              <p className="card-text fs-4 fw-bold d-none d-sm-block ">
+                NEW OFFERS FOR SPECIAL OCCATIONS AND CELEBRATIONS.
               </p>
             </div>
           </div>
