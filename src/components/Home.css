@@ -1,20 +1,24 @@
-.hero {
+/* .hero {
     position: relative;
   }
-  
+  @font-face {
+    font-family: monteserrat;
+    src: url(../../public/Montserrat-Bold.ttf);
+  }
+
   .card-img-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Change this value to adjust the opacity */
+    background-color: rgba(0, 0, 0, 0.4); 
   }
   
   .card-img-overlay .text-container {
     position: relative;
     z-index: 1;
-    color: #ffffff; /* Change this value to adjust the text color */
+    color: #ffffff; 
     padding: 0 1rem;
     padding-top: 120px;
   }
@@ -22,11 +26,13 @@
   .card-title {
     font-size: 3rem;
     line-height: 1.2;
-    margin-bottom: 1rem;
-  }
+    font-family: monteserrat;
+    margin-bottom: 4;
+  } 
   
   .card-text {
     font-size: 1.5rem;
+    font-family: monteserrat;
     line-height: 1.5;
     margin-bottom: 2rem;
   }
@@ -38,6 +44,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Change this value to adjust the opacity */
+    background-color: rgba(0, 0, 0, 0.4); 
     filter: blur(5px);
   }
+ */
