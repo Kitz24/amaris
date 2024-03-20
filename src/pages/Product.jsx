@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import Marquee from "react-fast-marquee";
 import { useDispatch } from "react-redux";
 import { addCart } from "../redux/action";
+import producc from "../components/boo.json"
 
 import { Footer, Navbar } from "../components";
 
@@ -24,14 +25,14 @@ const Product = () => {
     const getProduct = async () => {
       setLoading(true);
       setLoading2(true);
-      const response = await fetch(`https://fakestoreapi.com/products/${id}`);
-      const data = await response.json();
-      setProduct(data);
+      //const response = await fetch(`https://fakestoreapi.com/products/${id}`);
+      const data = producc.filter(item => item.id === parseInt(id));
+      setProduct(data[0]);
       setLoading(false);
-      const response2 = await fetch(
-        `https://fakestoreapi.com/products/category/${data.category}`
-      );
-      const data2 = await response2.json();
+      //const response2 = await fetch(
+      //  `https://fakestoreapi.com/products/category/${data.category}`
+      //);
+      const data2 = producc;
       setSimilarProducts(data2);
       setLoading2(false);
     };
@@ -82,7 +83,7 @@ const Product = () => {
                 {product.rating && product.rating.rate}{" "}
                 <i className="fa fa-star"></i>
               </p>
-              <h3 className="display-6  my-4">${product.price}</h3>
+              <h3 className="display-6  my-4">₹{product.price}</h3>
               <p className="lead">{product.description}</p>
               <button
                 className="btn btn-outline-dark"
