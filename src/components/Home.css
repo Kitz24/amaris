@@ -1,50 +1,22 @@
 /* .hero {
-    position: relative;
-  }
-  @font-face {
-    font-family: monteserrat;
-    src: url(../../public/Montserrat-Bold.ttf);
-  }
+  position: relative;
+}
 
-  .card-img-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.4); 
-  }
-  
-  .card-img-overlay .text-container {
-    position: relative;
-    z-index: 1;
-    color: #ffffff; 
-    padding: 0 1rem;
-    padding-top: 120px;
-  }
-  
-  .card-title {
-    font-size: 3rem;
-    line-height: 1.2;
-    font-family: monteserrat;
-    margin-bottom: 4;
-  } 
-  
-  .card-text {
-    font-size: 1.5rem;
-    font-family: monteserrat;
-    line-height: 1.5;
-    margin-bottom: 2rem;
-  }
-  
-  .card-img-overlay::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.4); 
-    filter: blur(5px);
-  }
- */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.text-on-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 2;
+} */
