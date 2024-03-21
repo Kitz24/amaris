@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Footer, Navbar } from "../components";
 
 
-const AddItem = () => {
+const Additem = () => {
   const [itemTitle, setItemTitle] = useState('');
   const [itemDescription, setItemDescription] = useState('');
   const [price, setPrice] = useState('');
@@ -40,7 +40,7 @@ const AddItem = () => {
         
         <div className="row my-4 h-100">
           <div className="col-md-4 col-lg-10 col-sm-8 mx-auto">
-            <form>
+            <form action={{handleSubmit}}>
               <div className="my-3">
                 <label htmlFor="titleInput">Title</label>
                 <input
@@ -102,4 +102,4 @@ const AddItem = () => {
   );
 };
 
-export default AddItem;
+export default Additem;
