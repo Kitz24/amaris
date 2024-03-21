@@ -75,11 +75,11 @@ const Products = () => {
       <>
         <div className="buttons text-center py-5">
           <button className="btn btn-outline-dark btn-sm m-2" onClick={() => setFilter(data)}>All</button>
-          <button className="btn btn-outline-dark btn-sm m-2" onClick={() => filterProduct("men's clothing")}>Cutlery</button>
-          <button className="btn btn-outline-dark btn-sm m-2" onClick={() => filterProduct("women's clothing")}>
+          <button className="btn btn-outline-dark btn-sm m-2" onClick={() => filterProduct("cutlery")}>Cutlery</button>
+          <button className="btn btn-outline-dark btn-sm m-2" onClick={() => filterProduct("glassware")}>
             Glasswares
           </button>
-          <button className="btn btn-outline-dark btn-sm m-2" onClick={() => filterProduct("jewelery")}>Utensils</button>
+          <button className="btn btn-outline-dark btn-sm m-2" onClick={() => filterProduct("utensil")}>Utensils</button>
           <button className="btn btn-outline-dark btn-sm m-2" onClick={() => filterProduct("electronics")}>Appliances</button>
         </div>
 
