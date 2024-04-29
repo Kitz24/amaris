@@ -3,7 +3,7 @@
 A Ecommerce Website made with React.js Framework.
 
 
-##issues
+## issues
 -home page div not structuring itself for mobile view
 
 ## Run Locally
