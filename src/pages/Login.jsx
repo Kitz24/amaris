@@ -1,63 +1,68 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import supabase from '../components/supabaseClient';
-import { Navbar, Main, Product, Footer } from "../components";
-
+import { Navbar, Footer } from "../components";
+import { useNavigate } from 'react-router-dom';
+import { SessionContext } from '../SessionContext'; // Import SessionContext as named export
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
-  const [session, setSession] = useState(null); // State variable to hold the session
-  const [signedOut, setSignedOut] = useState(false); // State variable to track sign-out status
+  const { session, setSession } = useContext(SessionContext); // Destructure session context
+  const [signedOut, setSignedOut] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    const { data: authListener } = supabase.auth.onAuthStateChange((event, session) => {
+    const authListener = supabase.auth.onAuthStateChange((event, session) => {
       setSession(session);
-      setSignedOut(false); // Reset signedOut state when session changes
+      setSignedOut(false);
+      if(session != null){
+        // Store session data in localStorage
+        localStorage.setItem('session', JSON.stringify(session));
+        navigate('/profile');
+      }
     });
 
     return () => {
-      authListener.subscription.unsubscribe();
+      authListener.data.subscription.unsubscribe();
     };
   }, []);
 
-  const signOut = async () => {
+  const handleLogin = async (event) => {
+    event.preventDefault();
+
     try {
-      if (session) {
-        await supabase.auth.signOut();
-        
-        setSignedOut(true); // Set signedOut to true when sign-out is successful
+      const { user, error } = await supabase.auth.signInWithPassword({ email, password });
+      if (error) {
+        throw error;
       }
     } catch (error) {
       setError(error.message);
     }
   };
 
-  const handleLogin = async () => {
+  const signOut = async () => {
     try {
-      const { user, error } = await supabase.auth.signInWithPassword({ email, password });
-      if (error) {
-        throw error;
+      if (session) {
+        await supabase.auth.signOut();
+        setSignedOut(true);
       }
-      window.location.reload();
     } catch (error) {
       setError(error.message);
     }
   };
 
   return (
-
-
     <div>
       <Navbar />
       <div className="container my-3 py-3">
         <h1 className="text-center">Login</h1>
         <hr />
         <div className="text-center">
-        {session && <div>Sign in successful! Email: {session.user.email}</div>} {/* Display success message when there's an active session */}
-      {signedOut && <div>Successfully signed out!</div>} {/* Display success message when signedOut is true */}
-      {error && <div>{error}</div>}
-      </div>
+          {session && <div>Sign in successful! Email: {session.user.email} Your ID: {session.user.id}</div>}
+          {signedOut && <div>Successfully signed out!</div>}
+          {error && <div>{error}</div>}
+        </div>
         <div className="row my-4 h-100">
           <div className="col-md-4 col-lg-4 col-sm-8 mx-auto">
             <form>
@@ -83,30 +88,19 @@ const Login = () => {
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
-              <div className="my-3">
-                <p>New Here?  </p>
-                <p>ADMIN LOGIN:  </p> {/* Additem link */}
-              </div>
               <div className="text-center">
-                <button className="my-2 mx-auto btn btn-dark" type="submit" onClick={handleLogin}>
+                <button className="my-2 mx-auto btn btn-dark" type="submit" onClick={(e) => handleLogin(e)}>
                   Login
                 </button>
-                
               </div>
             </form>
           </div>
         </div>
       </div>
       <Footer />
-      
-      
-      
-      
-      
       <button onClick={signOut}>Sign Out</button>
     </div>
   );
-  
 };
 
 export default Login;
