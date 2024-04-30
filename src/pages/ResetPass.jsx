@@ -10,12 +10,27 @@ function ResetPass() {
     const [password, setPassword] = useState('');
     const [error, setError] = useState(null);
     const { token } = useParams(); // Extract token from URL
+    const StoredSession = localStorage.getItem('session');
+
+    useEffect(() => {
+        supabase.auth.onAuthStateChange(async (event, session) => {
+          if (event == "PASSWORD_RECOVERY") {
+            const newPassword = prompt("What would you like your new password to be?");
+            const { data, error } = await supabase.auth
+              .updateUser({ password: newPassword })
+     
+            if (data) alert("Password updated successfully!")
+            if (error) alert("There was an error updating your password.")
+          }
+        })
+      }, [])
 
     const handlePasswordReset = async (event) => {
     event.preventDefault();
 
     try {
-      const { error } = await supabase.auth.updateUser(token, { password });
+        if(session===true){
+      const { error } = await supabase.auth.updateUser( { password });}
       if (error) {
         throw error;
       }

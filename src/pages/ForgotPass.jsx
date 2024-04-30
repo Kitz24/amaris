@@ -8,7 +8,20 @@ import { SessionContext } from '../SessionContext'; // Import
 function ForgotPass() {
     const [email, setEmail] = useState('');
     const [error, setError] = useState(null);
+    const { session, setSession } = useContext(SessionContext); // Destructure session context
+    const [signedOut, setSignedOut] = useState(false);
+    const navigate = useNavigate();  
 
+    useEffect(() => {
+        const authListener = supabase.auth.onAuthStateChange((event, session) => {
+          setSession(session);
+          if(session != null){
+            // Store session data in localStorage
+            localStorage.setItem('session', JSON.stringify(session));
+            navigate('/profile');
+          }
+        });
+      }, []);
 
 
     const handleForgotPass = async (event) => {
