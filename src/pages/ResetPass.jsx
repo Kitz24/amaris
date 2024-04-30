@@ -8,13 +8,17 @@ import { SessionContext } from '../SessionContext'; // Import
 
 function ResetPass() {
     const [password, setPassword] = useState('');
+    const [email, setEmail] = useState('');
     const [error, setError] = useState(null);
     const { token } = useParams(); // Extract token from URL
     const StoredSession = localStorage.getItem('session');
+    const session = StoredSession.user.email; // Destructure session context
+
+
 
     useEffect(() => {
         supabase.auth.onAuthStateChange(async (event, session) => {
-          if (event == "PASSWORD_RECOVERY") {
+          if (event === "PASSWORD_RECOVERY") {
             const newPassword = prompt("What would you like your new password to be?");
             const { data, error } = await supabase.auth
               .updateUser({ password: newPassword })
@@ -29,8 +33,8 @@ function ResetPass() {
     event.preventDefault();
 
     try {
-        if(session===true){
-      const { error } = await supabase.auth.updateUser( { password });}
+      setEmail(session);
+      const { error } = await supabase.auth.updateUser( {email, password });
       if (error) {
         throw error;
       }
