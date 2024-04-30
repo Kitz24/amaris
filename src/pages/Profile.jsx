@@ -38,8 +38,10 @@ function Profile() {
                     <div className="text-center">
                         <h1>Success. Welcome User {session ? session.user.email : ''}</h1>
                     
-                    <Link to="/" className="text-decoration-underline text-info">Home</Link>
-                    <button onClick={handleSignOut}>Sign Out</button> {/* Button to trigger sign-out */}
+                    
+                    <button className="my-2 mx-auto btn btn-dark" type="submit" onClick={handleSignOut}>
+                    Sign Out
+                </button>
                     </div>
                 </header>
             </div>
