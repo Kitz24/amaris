@@ -12,7 +12,7 @@ function ResetPass() {
     const [error, setError] = useState(null);
     const { token } = useParams(); // Extract token from URL
     const StoredSession = localStorage.getItem('session');
-    const session = StoredSession.user.email; // Destructure session context
+    // const session = StoredSession.user.email; // Destructure session context
 
 
 
@@ -33,8 +33,8 @@ function ResetPass() {
     event.preventDefault();
 
     try {
-      setEmail(session);
-      const { error } = await supabase.auth.updateUser( {email, password });
+      
+      const { error } = await supabase.auth.updateUser( { password });
       if (error) {
         throw error;
       }
