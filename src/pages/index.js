@@ -10,4 +10,6 @@ export { default as Checkout } from './Checkout';
 export { default as PageNotFound } from './PageNotFound';
 export { default as Additem } from './Additem';
 export { default as Profile } from './Profile';
+export { default as ForgotPass } from './ForgotPass';
+export { default as ResetPass } from './ResetPass';
 

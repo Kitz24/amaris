@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
+import { Link } from 'react-router-dom';
 import supabase from '../components/supabaseClient';
 import { Navbar, Footer } from "../components";
 import { useNavigate } from 'react-router-dom';
@@ -78,10 +79,12 @@ const Login = () => {
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
+              <Link to="/forgot">Forgot Password?</Link>
               <div className="text-center">
                 <button className="my-2 mx-auto btn btn-dark" type="submit" onClick={(e) => handleLogin(e)}>
                   Login
                 </button>
+                
               </div>
             </form>
           </div>

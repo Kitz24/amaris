@@ -9,7 +9,7 @@ import { SessionProvider } from './SessionContext';
 
 
 
-import { Home, Product, Products, AboutPage, ContactPage, Cart, Login, Register, Checkout, PageNotFound, Additem, Profile } from "./pages"
+import { Home, Product, Products, AboutPage, ContactPage, Cart, Login, Register, Checkout, PageNotFound, Additem, Profile, ForgotPass, ResetPass } from "./pages"
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -29,6 +29,8 @@ root.render(
           <Route path="/register" element={<Register />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/forgot" element={<ForgotPass />} />
+          <Route path="/resetpass" element={<ResetPass />} />
           <Route path="*" element={<PageNotFound />} />
           <Route path="/product/*" element={<PageNotFound />} />
         </Routes>

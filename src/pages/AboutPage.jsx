@@ -7,18 +7,8 @@ const AboutPage = () => {
       <div className="container my-3 py-3">
         <h1 className="text-center">About Us</h1>
         <hr />
-        <p className="lead text-center">
-        Welcome to Amaris Kitchen Store!
-
-At Amaris Kitchen Store, we believe that a well-equipped kitchen is the heart of every home. Nestled in the vibrant state of Kerala, India, our store is your ultimate destination for all your kitchen needs. Whether you're a seasoned chef or a passionate home cook, we offer a diverse range of high-quality kitchen appliances and utensils to elevate your culinary experience.
-
-Explore our extensive collection featuring leading brands from around the world. From sleek and modern to classic and timeless designs, we curate products that cater to every style and preference. Whether you're in search of state-of-the-art kitchen gadgets, durable cookware, or efficient appliances, we have you covered.
-
-Our team of knowledgeable and friendly staff is committed to providing personalized assistance to help you find the perfect products for your culinary endeavors. We understand that every kitchen is unique, and we strive to offer tailored solutions to meet your specific requirements.
-
-At Amaris Kitchen Store, we prioritize customer satisfaction above all else. We stand behind the quality of our products and take pride in offering competitive prices to ensure that you receive the best value for your investment.
-
-Visit us today and embark on a journey to transform your kitchen into a culinary haven. Whether you're seeking inspiration, innovation, or simply the joy of cooking, Amaris Kitchen Store is here to make your culinary dreams a reality. Experience the difference with us  where quality meets excellence, and every meal becomes a masterpiece.
+        <p className="lead text-center" style={{fontSize: 24, fontStyle:'revert'}}>
+        Amaris Kitchen Store in Kerala, India, is your go-to spot for top-notch kitchen supplies. We offer a wide range of high-quality appliances and utensils to suit every cook's needs, from beginners to experts. With a diverse selection of leading brands, our friendly staff is here to help you find the perfect fit for your kitchen. We prioritize customer satisfaction and competitive pricing to ensure you get the best value. Visit us today to elevate your culinary experience!
         </p>
 
         <h2 className="text-center py-4">Our Products</h2>
