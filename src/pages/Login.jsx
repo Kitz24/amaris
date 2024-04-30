@@ -41,16 +41,6 @@ const Login = () => {
     }
   };
 
-  const signOut = async () => {
-    try {
-      if (session) {
-        await supabase.auth.signOut();
-        setSignedOut(true);
-      }
-    } catch (error) {
-      setError(error.message);
-    }
-  };
 
   return (
     <div>
@@ -98,7 +88,6 @@ const Login = () => {
         </div>
       </div>
       <Footer />
-      <button onClick={signOut}>Sign Out</button>
     </div>
   );
 };

@@ -1,4 +1,5 @@
 import React from "react";
+import "./fonts.css";
 
 const Home = () => {
   return (
@@ -50,13 +51,12 @@ const Home = () => {
             }}
           >
             <div className="container text-container">
-              <h1 className="card-title fs-1 text fw-bold" style={{ color: "white" }}>
-                SPECIAL OFFERS INCOMING
+              <h1 className="card-title fs-1 text fw-bold" style={{ color: "white" , fontFamily: "sans-serif"}}>
               </h1>
-              <p className="card-text fs-1  d-none d-sm-block" style={{ color: "yellow" }}>
-                <em>New offers for special occations and celebrations.</em>
+              <p id="home" className="card-text fs-1  text" style={{ color: "yellow"}}>
+                <p>New offers for special occations and celebrations.</p>
               </p>
-              <p className="card-text fs-1 d-none d-sm-block" style={{ color: "white" }}>
+              <p id="home" className="card-text fs-1 text fw-bold" style={{ color: "white"}}>
                 <em>Unleash your inner chef with Amaris Cutlery.</em>
               </p>
             </div>
