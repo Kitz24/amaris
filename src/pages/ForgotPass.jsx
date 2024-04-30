@@ -31,9 +31,7 @@ function ForgotPass() {
     
         try {
 
-            const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
-                redirectTo: 'https://amaris-azure.vercel.app/resetpass',
-              })
+            const { data, error } = await supabase.auth.resetPasswordForEmail(email)
                           if (error) {
                 throw error;
             } else {
