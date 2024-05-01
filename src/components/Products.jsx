@@ -9,6 +9,8 @@ import "react-loading-skeleton/dist/skeleton.css";
 
 import { Link } from "react-router-dom";
 
+
+
 const Products = () => {
   const [data, setData] = useState([]);
   const [filter, setFilter] = useState(data);
@@ -40,7 +42,7 @@ const Products = () => {
   }, []);
 
   const showToastMessage = () => {
-    toast.success("Success Notification !");
+    toast.success('Added to Cart');
   };
 
   const Loading = () => {
@@ -115,9 +117,10 @@ const Products = () => {
                   <Link to={"/product/" + product.id} className="btn btn-dark m-1">
                     View
                   </Link>
-                  <button className="btn btn-dark m-1" onClick={() => addProduct(product) || showToastMessage()}>
+                  <button className="btn btn-dark m-1" onClick={() => { addProduct(product); showToastMessage(); }}>
                     Add to Cart
                   </button>
+                  <ToastContainer/>
                 </div>
               </div>
             </div>

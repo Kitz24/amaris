@@ -5,6 +5,8 @@ import Marquee from "react-fast-marquee";
 import { useDispatch } from "react-redux";
 import { addCart } from "../redux/action";
 import producc from "../components/boo.json"
+import { ToastContainer, toast } from 'react-toastify';
+import '../../node_modules/react-toastify/dist/ReactToastify.css';
 
 import { Footer, Navbar } from "../components";
 
@@ -19,6 +21,10 @@ const Product = () => {
 
   const addProduct = (product) => {
     dispatch(addCart(product));
+  };
+
+  const showToastMessage = () => {
+    toast.success('Added to Cart');
   };
 
   useEffect(() => {
@@ -89,13 +95,14 @@ const Product = () => {
               <p className="lead">{product.description}</p>
               <button
                 className="btn btn-outline-dark"
-                onClick={() => addProduct(product)}
-              >
+                onClick={() => { addProduct(product); showToastMessage(); }}>
                 Add to Cart
               </button>
+              
               <Link to="/cart" className="btn btn-dark mx-3">
                 Go to Cart
               </Link>
+              <ToastContainer/>
             </div>
           </div>
         </div>
