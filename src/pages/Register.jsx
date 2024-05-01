@@ -21,7 +21,9 @@ const Register = () => {
           if(session != null){
             // Store session data in localStorage
             localStorage.setItem('session', JSON.stringify(session));
-            navigate('/profile');
+            if (!session.user.last_sign_in_at) {
+                navigate('/profile'); // Navigate to the profile page only if the user just logged in
+              }
           }
         });
     

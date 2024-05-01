@@ -11,6 +11,7 @@ const Login = () => {
   const [error, setError] = useState(null);
   const { session, setSession } = useContext(SessionContext); // Destructure session context
   const [signedOut, setSignedOut] = useState(false);
+  const [firstlogin, setFirstlogin ] = useState(true);
   const navigate = useNavigate();
   
   
@@ -22,13 +23,12 @@ const Login = () => {
       if(session != null){
         // Store session data in localStorage
         localStorage.setItem('session', JSON.stringify(session));
-        console.log(session.user.email);
-        if(session.user.email === 'kittusroad@gmail.com'){
-          navigate('/additem');
+
+        if (firstlogin === true) {
+          navigate('/profile');
+          setFirstlogin(false); // Navigate to the profile page only if the user just logged in
         }
-        else{
-        navigate('/profile');
-        }
+        
       }
     });
 

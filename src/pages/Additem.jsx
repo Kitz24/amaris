@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Footer, Navbar } from "../components";
+import supabase from '../components/supabaseClient';
 
 
 const Additem = () => {
@@ -96,6 +97,10 @@ const Additem = () => {
             </form>
           </div>
         </div>
+
+        <h2>Delete Items</h2>
+        
+
       </div>
       <Footer />
     </>

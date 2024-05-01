@@ -1,10 +1,37 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
-import { useSelector } from 'react-redux'
-
+import React, { useState, useEffect } from 'react';
+import { useContext } from 'react';
+import { SessionContext } from '../SessionContext';
+import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import supabase from '../components/supabaseClient';
 
 const Navbar = () => {
-    const state = useSelector(state => state.handleCart)
+    const state = useSelector(state => state.handleCart);
+    const [admin, setAdmin] = useState(false);
+    const [user, setUser] = useState(false);
+    const { session, setSession } = useContext(SessionContext); // Destructure session context
+
+
+    useEffect(() => {
+        const authListener = supabase.auth.onAuthStateChange((event, session) => {
+        
+
+            if (session !== null) {
+                setUser(true);
+                if (session.user.email === 'kittusroad@gmail.com') {
+                    setAdmin(true);
+                } else {
+                    setAdmin(false);
+                }
+            }
+        });
+
+        // Unsubscribe from the auth listener when component unmounts
+        return () => {
+            authListener.data.subscription.unsubscribe();
+        };
+    }, []);
+
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light py-3 sticky-top">
             <div className="container">
@@ -28,16 +55,17 @@ const Navbar = () => {
                         </li>
                     </ul>
                     <div className="buttons text-center">
-                        <NavLink to="/login" className="btn btn-outline-dark m-2"><i className="fa fa-sign-in-alt mr-1"></i> Login</NavLink>
-                        <NavLink to="/register" className="btn btn-outline-dark m-2"><i className="fa fa-user-plus mr-1"></i> Register</NavLink>
+                        {user && <NavLink to="/profile" className="btn btn-outline-dark m-2"><i className="fa fa-sign-in-alt mr-1"></i> Profile</NavLink> }
+                        {!user && <NavLink to="/login" className="btn btn-outline-dark m-2"><i className="fa fa-sign-in-alt mr-1"></i> Login</NavLink>}
+                        {!user && <NavLink to="/register" className="btn btn-outline-dark m-2"><i className="fa fa-user-plus mr-1"></i> Register</NavLink>}
                         <NavLink to="/cart" className="btn btn-outline-dark m-2"><i className="fa fa-cart-shopping mr-1"></i> Cart ({state.length}) </NavLink>
+                        {admin && <NavLink to="/additem" className="btn btn-outline-dark m-2"><i className="fa fa-user-plus mr-1"></i> Admin Space</NavLink>}
+
                     </div>
                 </div>
-
-
             </div>
         </nav>
-    )
-}
+    );
+};
 
-export default Navbar
+export default Navbar;
