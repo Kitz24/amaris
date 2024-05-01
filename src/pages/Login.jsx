@@ -12,6 +12,8 @@ const Login = () => {
   const { session, setSession } = useContext(SessionContext); // Destructure session context
   const [signedOut, setSignedOut] = useState(false);
   const navigate = useNavigate();
+  
+  
 
   useEffect(() => {
     const authListener = supabase.auth.onAuthStateChange((event, session) => {
@@ -20,7 +22,13 @@ const Login = () => {
       if(session != null){
         // Store session data in localStorage
         localStorage.setItem('session', JSON.stringify(session));
+        console.log(session.user.email);
+        if(session.user.email === 'kittusroad@gmail.com'){
+          navigate('/additem');
+        }
+        else{
         navigate('/profile');
+        }
       }
     });
 
@@ -29,10 +37,13 @@ const Login = () => {
     };
   }, []);
 
+
   const handleLogin = async (event) => {
     event.preventDefault();
 
     try {
+     
+      
       const { user, error } = await supabase.auth.signInWithPassword({ email, password });
       if (error) {
         throw error;
@@ -50,6 +61,10 @@ const Login = () => {
         <h1 className="text-center">Login</h1>
         <hr />
         <div className="text-center">
+          {<div>
+            {
+               }
+            </div>}
           {session && <div>Sign in successful! Email: {session.user.email} Your ID: {session.user.id}</div>}
           {signedOut && <div>Successfully signed out!</div>}
           {error && <div>{error}</div>}

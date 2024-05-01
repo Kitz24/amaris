@@ -30,6 +30,28 @@ function Profile() {
         }
     };
 
+    
+  const handleAdmin = async (event2) => {
+    try {
+        //const a = await supabase.from('ADMIN_TABLE').insert({admin_id: 2, admin_name: 'test', admin_pass: 'test'});
+        const a = await supabase.from('ADMIN_TABLE').select('admin_name');
+        console.log(a.data[0]);
+    } catch (error) {
+        console.error( error);
+    }
+    }
+    
+    const handleRole = async (event2) => {
+        try {
+            const { data, error } = await supabase.auth.getUser('kittusroad@gmail.com');
+            console.log(data);
+        } catch (error) {
+            console.error( error);
+        }
+    
+    
+  }
+
     return(
         <div>
             <Navbar/>
@@ -42,6 +64,11 @@ function Profile() {
                     <button className="my-2 mx-auto btn btn-dark" type="submit" onClick={handleSignOut}>
                     Sign Out
                 </button>
+
+                {/* <button className="my-2 mx-auto btn btn-dark" type="submit" onClick={handleAdmin}>ADMIN ACTION</button> */}
+
+                {/* <button className="my-2 mx-auto btn btn-dark" type="submit" onClick={handleRole}>some cahnging role acTION</button> */}
+                
                     </div>
                 </header>
             </div>
