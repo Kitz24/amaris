@@ -1,4 +1,5 @@
 import React from "react";
+import { useEffect } from "react";
 import { Footer, Navbar } from "../components";
 import { useSelector, useDispatch } from "react-redux";
 import { addCart, delCart } from "../redux/action";
@@ -7,6 +8,11 @@ import { Link } from "react-router-dom";
 const Cart = () => {
   const state = useSelector((state) => state.handleCart);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    // Save cart state to localStorage whenever it changes
+    localStorage.setItem("cart", JSON.stringify(state));
+  }, [state]);
 
   const EmptyCart = () => {
     return (

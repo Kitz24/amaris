@@ -2,11 +2,13 @@ import { useContext, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { SessionContext } from "../SessionContext";
 import { Navbar, Footer } from "../components";
+import { useDispatch } from "react-redux";
 import supabase from '../components/supabaseClient'; // Import supabase client
 
 function Profile() {
     const { session, setSession } = useContext(SessionContext); // Destructure session context
     const navigate = useNavigate(); // Get the navigate function
+    const dispatch = useDispatch();
 
     useEffect(() => {
         // Retrieve session data from localStorage when component mounts
@@ -23,6 +25,7 @@ function Profile() {
                 await supabase.auth.signOut(); // Sign out using Supabase client
                 setSession(null); // Clear session from context
                 localStorage.removeItem('session'); // Remove session data from localStorage
+                dispatch({ type: "CLEAR_CART" });
                 navigate('/'); // Navigate back to home page
             }
         } catch (error) {
