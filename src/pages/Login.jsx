@@ -38,19 +38,34 @@ const Login = () => {
   }, []);
 
 
+
+  function isValidEmail(email) {
+    // Define a regular expression pattern for email validation.
+    const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return pattern.test(email);
+  }
+
   const handleLogin = async (event) => {
     event.preventDefault();
-
-    try {
+    if (isValidEmail(email)) {
+      try {
      
       
-      const { user, error } = await supabase.auth.signInWithPassword({ email, password });
-      if (error) {
-        throw error;
+        const { user, error } = await supabase.auth.signInWithPassword({ email, password });
+        if (error) {
+          throw error;
+        }
+      } catch (error) {
+        setError(error.message);
       }
-    } catch (error) {
-      setError(error.message);
+    } else {
+      // Display an error message for invalid email.
+      alert("Invalid email");
+      setError("Please Enter Valid email");
     }
+
+
+    
   };
 
 

@@ -29,24 +29,39 @@ const Register = () => {
     
       });
 
+    function isValidEmail(email) {
+        // Define a regular expression pattern for email validation.
+        const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return pattern.test(email);
+      }
+
     const handleSignUp = async (event) => {
     event.preventDefault();
-
-    try {
-      const { user, error } = await supabase.auth.signUp({
-        email,
-        password,
-        data: { full_name: Username } // Additional user data
-      });
-      if (error) {
-        throw error;
-      } else {
-        // Redirect to profile page after successful registration
-        alert('Please Check your Email to Confirm later');
+    
+    if (isValidEmail(email) && Username!=='') {
+        try {
+            const { user, error } = await supabase.auth.signUp({
+              email,
+              password,
+              data: { full_name: Username } // Additional user data
+            });
+            if (error) {
+              throw error;
+            } else {
+              // Redirect to profile page after successful registration
+              alert('Please Check your Email to Confirm later');
+              navigate('/');
+            }
+          } catch (error) {
+            setError(error.message);
+          }
+      } 
+      else {
+        // Display an error message for invalid email.
+        alert("Invalid Details");
+        setError("Please Enter Valid email, Name, Password");
       }
-    } catch (error) {
-      setError(error.message);
-    }
+    
 };
 
 
@@ -58,6 +73,7 @@ const Register = () => {
                 <hr />
                 <div class="row my-4 h-100">
                     <div className="col-md-4 col-lg-4 col-sm-8 mx-auto">
+                    {error && <div>{error}</div>}
                         <form>
                             <div class="form my-3">
                                 <label for="Username">Full Name</label>

@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { addCart } from "../redux/action";
 import producc from "./boo.json"
-
+import { ToastContainer, toast } from 'react-toastify';
+import '../../node_modules/react-toastify/dist/ReactToastify.css';
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 
@@ -37,6 +38,10 @@ const Products = () => {
 
     getProducts();
   }, []);
+
+  const showToastMessage = () => {
+    toast.success("Success Notification !");
+  };
 
   const Loading = () => {
     return (
@@ -110,7 +115,7 @@ const Products = () => {
                   <Link to={"/product/" + product.id} className="btn btn-dark m-1">
                     View
                   </Link>
-                  <button className="btn btn-dark m-1" onClick={() => addProduct(product)}>
+                  <button className="btn btn-dark m-1" onClick={() => addProduct(product) || showToastMessage()}>
                     Add to Cart
                   </button>
                 </div>
