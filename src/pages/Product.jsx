@@ -37,6 +37,8 @@ const Product = () => {
       setLoading2(false);
     };
     getProduct();
+
+    window.scrollTo(0, 0);
   }, [id]);
 
   const Loading = () => {
