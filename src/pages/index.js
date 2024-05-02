@@ -12,4 +12,5 @@ export { default as Additem } from './Additem';
 export { default as Profile } from './Profile';
 export { default as ForgotPass } from './ForgotPass';
 export { default as ResetPass } from './ResetPass';
+export { default as Orders } from './Orders';
 
